@@ -78,7 +78,7 @@ p {
 }
 
 .drop-outer-coffee {
-    border: 2px solid green;
+    /*border: 2px solid green;*/
     display: flex;
     width: 50%;
     margin: 0;
