@@ -24,9 +24,15 @@
 
     <div class="container">  <!-- Second container start ---->
         <div class="row">
-            <div class="col-xl-6"> <!-- left side start ---->
+            <div class="col-6"> <!-- left side start ---->
 
-                <table>
+
+            	
+            		<div id="coffees"></div>
+            	
+
+
+               <!--  <table>
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -35,10 +41,10 @@
                     </tr>
                     </thead>
                     <tbody id="coffees"></tbody>
-                </table>
+                </table> -->
 
             </div>  <!-- left side end ---->
-            <div class="col-xl-6"> <!-- right side start ---->
+            <div class="col-6"> <!-- right side start ---->
 
                 <form>
                     <label for="roast-selection"></label>
@@ -47,6 +53,12 @@
                         <option>medium</option>
                         <option>dark</option>
                     </select>
+                            <!-- Search Inpu -->
+
+                    <label for="coffee-name"></label>
+                    <input type="text" id="coffee-name" class="coffee-name">
+
+
                     <input id="submit" type="submit" />
                 </form>
 

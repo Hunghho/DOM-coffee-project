@@ -4,6 +4,85 @@ table {
 }
 
 td, th {
-    border: 1px solid black;
+/*    border: 1px solid black;*/
     padding: 5px 10px;
 }
+
+
+#coffees {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.outer-coffee {
+    border: 2px solid red;
+    display: flex;
+/*    width: 50%;*/
+    margin: 0;
+
+    flex-wrap: wrap;
+    flex-shrink: 1;
+
+}
+
+h1 {
+    font-size: 1.92rem;
+/*    width: 50%;*/
+/*    flex-shrink: 1;*/
+
+}
+
+p {
+/*    width: 50%;*/
+/*margin: 0;*/
+/*    margin: auto;*/
+    margin: auto .5rem;
+    flex-shrink: 1;
+
+
+}
+
+.inner-coffee {
+    /*border: 1px solid blue;
+    margin: 2px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;*/
+
+    border: 2px solid blue;
+    display: flex;
+    width: 50%;
+    margin: 0;
+
+    flex-wrap: wrap;
+    flex-shrink: 1;
+
+}
+
+.drop-outer-coffee {
+    border: 2px solid green;
+    display: flex;
+    width: 50%;
+    margin: 0;
+
+    flex-wrap: wrap;
+    flex-shrink: 1;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
