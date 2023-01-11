@@ -1,3 +1,20 @@
+:root{
+    --mb-dropdown: .5em;
+    --m-submit: .75em 0;
+}
+
+body{
+    width: 100%;
+}
+
+.page-wrapper{
+    margin: 0 3rem;
+}
+
+.main-title{
+    margin: 1rem 0;
+}
+
 table {
     border-collapse: collapse;
     margin: 15px 0;
@@ -15,7 +32,7 @@ td, th {
 }
 
 .outer-coffee {
-    border: 2px solid red;
+    /*border: 2px solid red;*/
     display: flex;
 /*    width: 50%;*/
     margin: 0;
@@ -26,7 +43,7 @@ td, th {
 }
 
 h1 {
-    font-size: 1.92rem;
+    font-size: 1.8rem;
 /*    width: 50%;*/
 /*    flex-shrink: 1;*/
 
@@ -49,10 +66,11 @@ p {
     flex-wrap: wrap;
     width: 100%;*/
 
-    border: 2px solid blue;
+    /*border: 2px solid blue;*/
     display: flex;
     width: 50%;
     margin: 0;
+    padding: .5rem 0;
 
     flex-wrap: wrap;
     flex-shrink: 1;
@@ -64,6 +82,7 @@ p {
     display: flex;
     width: 50%;
     margin: 0;
+    padding: .5rem 0;
 
     flex-wrap: wrap;
     flex-shrink: 1;
@@ -71,12 +90,41 @@ p {
 }
 
 
+.form{
+    display: grid;
+    grid-template-row: 1em;
+    gap: .25em;
 
+}
 
+.input-padding{
+    padding: .1em 0;
+}
 
+#roast-selection{
+    margin-bottom: var(--mb-dropdown);
+}
 
+#submit{
+    /*margin: var(--m-submit);*/
+}
 
+.button{
+    background-color: rgb(61,137,203);
+    border-radius: 5px;
+    border: none;
+    margin: var(--m-submit);
+    color: white;
 
+}
+
+#roast-category{
+    margin-bottom: var(--mb-dropdown);
+}
+
+#submit-coffee{
+
+}
 
 
 
