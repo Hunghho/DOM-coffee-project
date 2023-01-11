@@ -2,7 +2,6 @@
 
 function renderCoffee(coffee) {
     var html = '<div class="drop-outer-coffee">';
-    // html += '<td>' + coffee.id + '</td>';
     html += '<h1>' + coffee.name + '</h1>';
     html += '<p>' + coffee.roast + '</p>';
     html += '</div>';
@@ -40,22 +39,18 @@ function capitalizeFirstLetter(string) {
 }
 
 
-//------------- First Input Field----------------
+//------------- First Input Field---------------->
 
 const search = document.querySelector('#coffee-name');
 const output = document.querySelector('#coffees');
 
-
 // window.addEventListener('DOMContentLoaded', loadTable);
-
 
 search.addEventListener('input', filter)
 
 
-function loadTable(){
+const loadTable = () => {
     let html = `<div class="outer-coffee">`;
-    // tableHeader.forEach(header => html+= `<th> ${header.toUpperCase()} </th>`)
-    // html += `<tr>`
     coffees.forEach(coffee => {
         html+= `
         <div class="inner-coffee">
@@ -66,14 +61,13 @@ function loadTable(){
     })
 
     html += `</div>`
-
+    
 
     output.innerHTML = html;
 }
 
 
 function filter(e){
-    // console.log(e.target.value);
     let results;
     let html = "";
 
@@ -101,7 +95,49 @@ function filter(e){
     output.innerHTML = html 
 }
 
-// Input End-----
+
+
+
+// ADD Coffee to Object 2nd Input Field ------------->
+
+const newCoffee = document.querySelector("#new-coffee")
+
+const addCoffeeButton = document.querySelector("#submit-coffee")
+
+const roastType = document.querySelector('#roast-category');
+
+
+
+console.log(newCoffee.value);
+
+
+
+const pushCoffee = e => {
+    e.preventDefault()
+    let obj = {
+    name: `${newCoffee.value}`, roast: `${roastType.value}`
+    }
+
+    coffees.push(obj)
+
+    let html = `<div class="outer-coffee">`;
+        coffees.forEach(coffee => {
+            html+= `
+            <div class="inner-coffee">
+                <h1>${coffee.name}</h1>
+                <p>${coffee.roast}</p>
+            </div>
+            `    
+             })
+        html += `</div>`
+    output.innerHTML = html 
+}
+
+addCoffeeButton.addEventListener('click', pushCoffee)
+
+
+
+// Input Field End -------------------->
 
 
 
@@ -126,10 +162,7 @@ var coffees = [
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
-let submitCoffee = document.querySelector('#submit-coffee');
-
 
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
-
