@@ -25,7 +25,7 @@ function updateCoffees(e) {
         if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
         }
-        else if(selectedRoast === 'all')
+        else if(selectedRoast === 'all') //add option all
         {
             filteredCoffees.push(coffee);
         }
@@ -33,39 +33,12 @@ function updateCoffees(e) {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
-
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-
 //------------- First Input Field---------------->
 
 const search = document.querySelector('#coffee-name');
 const output = document.querySelector('#coffees');
 
-// window.addEventListener('DOMContentLoaded', loadTable);
-
 search.addEventListener('input', filter)
-
-
-const loadTable = () => {
-    let html = `<div class="outer-coffee">`;
-    coffees.forEach(coffee => {
-        html+= `
-        <div class="inner-coffee">
-            <h1>${coffee.name}</h1>
-            <p>${coffee.roast}</p>
-        </div>
-            `
-    })
-
-    html += `</div>`
-    
-
-    output.innerHTML = html;
-}
-
 
 function filter(e){
     let results;
@@ -76,8 +49,7 @@ function filter(e){
     console.log(results);
 
     if (results.length > 0){
-        html = `<div class="outer-coffee">`;
-        // html += `<tr>`
+        html = `<div class="drop-outer-coffee">`;
         results.forEach(coffee => {
             html+= `
             <div class="inner-coffee">
@@ -86,17 +58,12 @@ function filter(e){
             </div>
             `
         })
-
         html += `</div>`
     } else {
-        html = `<div class="no-itme">Item Not Found </div>`
+        html = `<div class="no-item">Item Not Found </div>`
     }
-
     output.innerHTML = html 
 }
-
-
-
 
 // ADD Coffee to Object 2nd Input Field ------------->
 
@@ -105,12 +72,6 @@ const newCoffee = document.querySelector("#new-coffee")
 const addCoffeeButton = document.querySelector("#submit-coffee")
 
 const roastType = document.querySelector('#roast-category');
-
-
-
-console.log(newCoffee.value);
-
-
 
 const pushCoffee = e => {
     e.preventDefault()
@@ -135,11 +96,7 @@ const pushCoffee = e => {
 
 addCoffeeButton.addEventListener('click', pushCoffee)
 
-
-
 // Input Field End -------------------->
-
-
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
