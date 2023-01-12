@@ -17,6 +17,7 @@ function renderCoffees(coffees) {
     return html;
 }
 
+
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
@@ -79,7 +80,7 @@ const pushCoffee = e => {
     name: `${newCoffee.value}`, roast: `${roastType.value}`
     }
 
-    coffees.push(obj)
+    coffees.unshift(obj)
 
     let html = `<div class="outer-coffee">`;
         coffees.forEach(coffee => {
@@ -91,11 +92,17 @@ const pushCoffee = e => {
             `    
              })
         html += `</div>`
-    output.innerHTML = html 
+    output.innerHTML = html
+    localStorage.setItem('coffees', JSON.stringify(coffees));
+    console.log(JSON.stringify(coffees));
 }
 
-addCoffeeButton.addEventListener('click', pushCoffee)
+    addCoffeeButton.addEventListener('click', pushCoffee)
 
+// local storage
+
+    const newCoffees = JSON.parse(localStorage.getItem('coffees'));
+    console.log(newCoffees);
 // Input Field End -------------------->
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
@@ -115,7 +122,7 @@ var coffees = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ];
-
+coffees = newCoffees;
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
@@ -123,9 +130,6 @@ var roastSelection = document.querySelector('#roast-selection');
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
-
-
-
 
 
 })();
