@@ -1,5 +1,5 @@
+(() => {
 "use strict"
-
 function renderCoffee(coffee) {
     var html = '<div class="drop-outer-coffee">';
     html += '<h1>' + coffee.name + '</h1>';
@@ -123,3 +123,9 @@ var roastSelection = document.querySelector('#roast-selection');
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
+
+
+
+
+
+})();

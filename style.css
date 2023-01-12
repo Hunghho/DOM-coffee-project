@@ -80,10 +80,6 @@ p {
     margin-bottom: var(--mb-dropdown);
 }
 
-#submit{
-    /*margin: var(--m-submit);*/
-}
-
 .button{
     background-color: rgb(61,137,203);
     border-radius: 5px;
