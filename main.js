@@ -93,16 +93,11 @@ const pushCoffee = e => {
              })
         html += `</div>`
     output.innerHTML = html
-    localStorage.setItem('coffees', JSON.stringify(coffees));
-    console.log(JSON.stringify(coffees));
+    storeLocal(); // added functions to localStorage
 }
 
     addCoffeeButton.addEventListener('click', pushCoffee)
 
-// local storage
-
-    const newCoffees = JSON.parse(localStorage.getItem('coffees'));
-    console.log(newCoffees);
 // Input Field End -------------------->
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
@@ -122,7 +117,7 @@ var coffees = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ];
-coffees = newCoffees;
+// coffees = newCoffees;
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
@@ -130,6 +125,20 @@ var roastSelection = document.querySelector('#roast-selection');
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
+
+// local storage
+    // function to save new coffee input
+    function storeLocal(){
+        localStorage.setItem('coffees', JSON.stringify(coffees));
+    }
+        // display saved coffee input back to object
+        const newCoffees = JSON.parse(localStorage.getItem('coffees'));
+        console.log(newCoffees);
+
+        //once new user add coffee to localStorage, this happen... re declaring new value for coffees object to localStorage object
+        if(newCoffees){
+            coffees = newCoffees;
+        }
 
 
 })();
