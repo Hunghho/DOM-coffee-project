@@ -4,6 +4,7 @@
 }
 
 body{
+    background-image: url("../img/brownbag.jpeg");
     width: 100%;
 }
 
@@ -13,6 +14,7 @@ body{
 
 .main-title{
     margin: 1rem 0;
+    font-size: 4rem;
 }
 
 table {
@@ -43,8 +45,7 @@ h1 {
 p {
     margin: auto .5rem;
     flex-shrink: 1;
-    color: rgb(154, 154, 169);
-
+    color: darkgreen;
 }
 
 .inner-coffee {
@@ -81,7 +82,7 @@ p {
 }
 
 .button{
-    background-color: rgb(61,137,203);
+    background-color: darkgreen;
     border-radius: 5px;
     border: none;
     margin: var(--m-submit);
