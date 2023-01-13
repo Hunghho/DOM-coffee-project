@@ -9,7 +9,7 @@ function renderCoffee(coffee) {
     return html;
 }
 
-function renderCoffees(coffees) {
+const renderCoffees = coffees => {
     var html = '';
     for(var i = 0; i < coffees.length; i++) {
         html += renderCoffee(coffees[i]);
@@ -46,8 +46,6 @@ function filter(e){
     let html = "";
 
     results = coffees.filter(coffee => coffee.name.toLowerCase().includes(e.target.value.toLowerCase()))
-
-    console.log(results);
 
     if (results.length > 0){
         html = `<div class="drop-outer-coffee">`;
@@ -117,7 +115,7 @@ var coffees = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ];
-// coffees = newCoffees;
+
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
