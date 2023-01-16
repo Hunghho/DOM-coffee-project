@@ -34,67 +34,37 @@ function updateCoffees(e) {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
-//------------- First Input Field---------------->
+//-------------Search function---------------->
 
-const search = document.querySelector('#coffee-name');
-const output = document.querySelector('#coffees');
+const searchCoffee = document.querySelector('#search');
 
-search.addEventListener('input', filter)
+searchCoffee.addEventListener('input', function (e){
+    let searchValue = e.target.value.toLowerCase();
+    let inputValue = [];
 
-function filter(e){
-    let results;
-    let html = "";
-
-    results = coffees.filter(coffee => coffee.name.toLowerCase().includes(e.target.value.toLowerCase()))
-
-    if (results.length > 0){
-        html = `<div class="drop-outer-coffee">`;
-        results.forEach(coffee => {
-            html+= `
-            <div class="inner-coffee">
-                <h1>${coffee.name}</h1>
-                <p>${coffee.roast}</p>
-            </div>
-            `
-        })
-        html += `</div>`
-    } else {
-        html = `<div class="no-item">Item Not Found </div>`
-    }
-    output.innerHTML = html 
-}
+    coffees.forEach(coffee => {
+        if(coffee.name.toLowerCase().includes(searchValue)){
+            inputValue.push(coffee);
+        }
+    })
+    tbody.innerHTML = renderCoffees(inputValue);
+})
 
 // ADD Coffee to Object 2nd Input Field ------------->
 
-const newCoffee = document.querySelector("#new-coffee")
+const addCoffee = document.querySelector("#add")
 
 const addCoffeeButton = document.querySelector("#submit-coffee")
 
 const roastType = document.querySelector('#roast-category');
 
-const pushCoffee = e => {
-    e.preventDefault()
-    let obj = {
-    name: `${newCoffee.value}`, roast: `${roastType.value}`
-    }
+addCoffeeButton.addEventListener("click", function (e){
+    e.preventDefault();
+    coffees.unshift({id: coffees.length + 1, name: addCoffee.value , roast: roastType.value});
 
-    coffees.unshift(obj)
-
-    let html = `<div class="outer-coffee">`;
-        coffees.forEach(coffee => {
-            html+= `
-            <div class="inner-coffee">
-                <h1>${coffee.name}</h1>
-                <p>${coffee.roast}</p>
-            </div>
-            `    
-             })
-        html += `</div>`
-    output.innerHTML = html
-    storeLocal(); // added functions to localStorage
-}
-
-    addCoffeeButton.addEventListener('click', pushCoffee)
+    tbody.innerHTML = renderCoffees(coffees);
+    storeLocal();
+})
 
 // Input Field End -------------------->
 
